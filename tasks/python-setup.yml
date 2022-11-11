@@ -1,0 +1,7 @@
+- name: Install python virtual environment
+  become: true
+  apt:
+    name: python3.8-venv
+  tags:
+    - install
+    - python
