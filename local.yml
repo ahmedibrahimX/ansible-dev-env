@@ -10,4 +10,5 @@
       - install
       - core
   tasks:
+    - include: tasks/nvim-setup.yml
     - include: tasks/dotfiles.yml
