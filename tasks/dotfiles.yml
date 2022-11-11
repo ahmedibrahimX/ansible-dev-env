@@ -10,7 +10,7 @@
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
     recursive: yes
     update: yes
-    version: master
+    version: main
   tags:
     - install
     - dotfiles
