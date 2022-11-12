@@ -1,0 +1,11 @@
+- name: Install nerd fonts
+  shell: |
+    while read repo; do 
+        font=$(echo $repo | sed -e 's/\([^\/].zip\)/\1/')
+        wget $repo
+        unzip $font -d ~/.fonts
+        fc-cache -fv
+    done < $HOME/.dotfiles/other/nerd-fonts.txt
+  tags:
+    - install
+    - fonts
