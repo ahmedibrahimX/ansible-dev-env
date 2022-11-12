@@ -5,6 +5,11 @@
   tags:
     - install
     - zsh
+- name: Install ohmyzsh
+  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+  tags:
+    - install
+    - zsh
 - name: Get zsh theme
   shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
   tags:
