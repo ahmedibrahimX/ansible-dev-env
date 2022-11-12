@@ -25,3 +25,6 @@
 - name: Install ripgrep
   apt:
     name: ripgrep
+  tags:
+    - install
+    - neovim
