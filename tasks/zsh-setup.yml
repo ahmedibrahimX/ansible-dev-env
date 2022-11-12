@@ -37,3 +37,8 @@
   tags:
     - install
     - zsh
+- name: customize zshrc
+  shell: sed -i "s/ahmed/$(whoami)/" ~/.zshrc
+  tags:
+    - install
+    - zsh
