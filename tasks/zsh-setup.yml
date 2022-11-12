@@ -15,3 +15,25 @@
   tags:
     - install
     - zsh
+- name: Install zsh-autosuggestions
+  ansible.builtin.git:
+    repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
+    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+  tags:
+    - install
+    - zsh
+- name: Use zsh-autosuggestions
+  shell: sed -i 's/\(plugins=(.*\))/\1 zsh-autosuggestions)/' ~/.zshrc
+  tags:
+    - install
+    - zsh
+- name: Get zsh-syntax-highlighting
+  shell: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  tags:
+    - install
+    - zsh
+- name: Use zsh-syntax-highlighting
+  shell: sed -i 's/\(plugins=(.*\))/\1 zsh-syntax-highlighting)/' ~/.zshrc
+  tags:
+    - install
+    - zsh
