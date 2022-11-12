@@ -1,0 +1,17 @@
+- name: Install zsh
+  become: true
+  apt:
+    name: zsh
+  tags:
+    - install
+    - zsh
+- name: Get zsh theme
+  shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  tags:
+    - install
+    - zsh
+- name: Use theme
+  shell: sed -i 's/\(ZSH_THEME=\).*/\1\"powerlevel10k\/powerlevel10k\"/' ~/.zshrc
+  tags:
+    - install
+    - zsh
