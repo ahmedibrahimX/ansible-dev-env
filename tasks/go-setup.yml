@@ -1,0 +1,23 @@
+- name: Download GO
+  shell: curl -OL https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
+  tags:
+    - install
+    - go
+- name: Install GO
+  become: true
+  shell: sudo tar -C /usr/local -xvf go1.16.7.linux-amd64.tar.gz
+  tags:
+    - install
+    - go
+- name: Remove tar file
+  shell: rm go1.16.7.linux-amd64.tar.gz
+  tags:
+    - install
+    - go
+- name: Set GO global paths
+  shell: echo 'export PATH=$PATH:/usr/local/go/bin' >> /home/$(whoami)/.profile
+  tags:
+    - install
+    - go
+- name: Set GO local paths
+  shell: "export PATH=$PATH:/home/$(whoami)/go/bin/"
